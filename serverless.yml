@@ -1,0 +1,17 @@
+
+
+service: big-restaurants
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-2
+  stage: prod
+
+functions:
+  get-index:
+    handler: functions/get-index.handler
+    events:
+      - http:
+          path: /
+          method: get

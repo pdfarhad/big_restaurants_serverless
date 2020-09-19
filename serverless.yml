@@ -7,6 +7,10 @@ provider:
   runtime: nodejs12.x
   region: us-east-2
   stage: prod
+  iamRoleStatements:
+    - Effect: Allow
+      Action: dynamodb:scan
+      Resource: arn:aws:dynamodb:us-east-2:310687043802:table/restaurants
 
 functions:
   get-index:
@@ -14,4 +18,10 @@ functions:
     events:
       - http:
           path: /
+          method: get
+  get-restaurants:
+    handler: functions/get-restaurants.handler
+    events:
+      - http:
+          path: /restaurants
           method: get

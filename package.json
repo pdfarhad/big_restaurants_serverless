@@ -11,6 +11,7 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "bluebirds": "0.0.6",
-    "co": "^4.6.0"
+    "co": "^4.6.0",
+    "serverless-pseudo-parameters": "^2.5.0"
   }
 }

@@ -3,7 +3,7 @@ const AWS = require("aws-sdk");
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 const defaultResults = process.env.defaultResults || 8;
-const tableName = process.env.restaurants_table;
+const tableName = process.env.restaurants_table || "restaurants";
 
 function* getRestaurants(count) {
     let req = {
@@ -17,7 +17,7 @@ function* getRestaurants(count) {
 
 }
 
-module.export.handler = co.wrap(function* (event, context, callback) {
+module.exports.handler = co.wrap(function* (event, context, callback) {
 
     let restaurants = yield getRestaurants(defaultResults);
     let response = {
